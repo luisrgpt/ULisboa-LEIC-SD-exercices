@@ -4,6 +4,8 @@ Malta, metam as cenas aqui !
 # Instruções
 Em caso de emergência, leiam as instruções.
 
+(Corrijam-me se houver alguma coisa em falta.)
+
 ## Para criar repositório local:
 
 git clone https://github.com/lribeirogomes/sd
@@ -25,5 +27,3 @@ git fetch
 git rebase
 
 (e verificar as colisões manualmente)
-
-Se houver alguma coisa em falta, metam aqui.
