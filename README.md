@@ -4,11 +4,11 @@ Malta, metam as cenas aqui !
 # Instruções
 Em caso de emergência, leiam as instruções.
 
-- Para criar repositório local:
+## Para criar repositório local:
 
 git clone https://github.com/lribeirogomes/sd
 
-- Para meter as cenas no GitHub:
+## Para meter as cenas no GitHub:
 
 git add (meter a localização ficheiros que mudaste)
 
@@ -18,7 +18,7 @@ git push
 
 (se o git não deixar fazer "git pull", é porque há uma nova versão)
 
-- Para sincronizar repositórios:
+## Para sincronizar repositórios:
 
 git fetch
 
