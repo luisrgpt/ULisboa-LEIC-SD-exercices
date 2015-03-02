@@ -27,10 +27,6 @@ RPCGENFLAGS =
 
 # Targets
 
-test: clean all
-	./ttt_server &
-	./ttt_client localhost
-
 all : $(CLIENT) $(SERVER)
 
 $(TARGETS) : $(SOURCES.x)
