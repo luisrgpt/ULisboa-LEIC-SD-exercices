@@ -8,28 +8,28 @@ Em caso de emergência, leiam as instruções.
 
 ## Para criar repositório local:
 
-git clone https://github.com/lribeirogomes/sd
+```git clone https://github.com/lribeirogomes/sd```
 
 ## Para meter as cenas no GitHub:
 
-git add (meter a localização ficheiros que mudaste)
+```git add``` (meter a localização ficheiros que mudaste)
 
-git commit -m "(mensagem do commit, que explica e justifica as alterações efectuadas)"
+```git commit -m``` "(mensagem do commit, que explica e justifica as alterações efectuadas)"
 
-git push
+```git push```
 
 (se o git não deixar fazer "git pull", é porque há uma nova versão)
 
 ## Para sincronizar repositórios:
 
-git fetch
+```git fetch```
 
-git rebase
+```git rebase```
 
 (e verificar as colisões manualmente)
 
 # Atenção !!!
 
-Não fazer "git pull", que pode eliminar as alterações que foram efectuadas no repositório local.
+Não fazer ```git pull```, que pode eliminar as alterações que foram efectuadas no repositório local.
 
-Não fazer "git fork", para simplificar a sincronização e leitura dos repositórios.
+Não fazer ```git fork```, para simplificar a sincronização e leitura dos repositórios.
