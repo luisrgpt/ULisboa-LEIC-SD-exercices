@@ -15,6 +15,11 @@ static char board[3][3] = {
 static int nextPlayer = 0;
 /* Number of plays so far */
 static int numPlays = 0;
+/* Last play */
+typedef struct lastPlay {
+    int lastRow=10;
+    int lastColumn=10;
+};
 /* Mutex */
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -56,6 +61,8 @@ int play(int row, int column, int player) {
     board[row][column] = (player == 1) ? 'X' : 'O';  /* Insert player symbol   */
     nextPlayer = (nextPlayer + 1) % 2;
     numPlays ++;
+    lastPlay.lastRow=row;
+    lastPlay.lastColumn=column;
     pthread_mutex_unlock(&mutex);
     return 0;
 }
@@ -106,4 +113,13 @@ int checkWinner() {
     
     pthread_mutex_unlock (&mutex);
     return result; 
+}
+
+int anular () {
+    if (lastPlay.lastRow<10 && lastPlay.lastColumn<10) {
+        numplays--;
+        board[row][column] = '';
+        return 0;
+    }
+    return 1;
 }
