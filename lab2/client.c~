@@ -37,7 +37,7 @@ ttt_1(char *host)
 				printf ("%s", *result_1);
 			
 			printf("\nPlayer %d, please enter the number of the square "
-					"where you want to place your %c (0 to refresh the board, 10 to undo the last play): ", play_1_arg.player,(play_1_arg.player==1)?'X':'O');
+					"where you want to place your %c (or 0 to refresh the board): ", play_1_arg.player,(play_1_arg.player==1)?'X':'O');
 			scanf(" %d", &go);
 			if (go == 0){
 				play_res = 0;

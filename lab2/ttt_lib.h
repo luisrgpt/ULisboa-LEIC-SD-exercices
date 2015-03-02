@@ -6,6 +6,6 @@
 void currentBoard(char *buffer);
 int play(int row, int column, int player);
 int checkWinner();
-int anular();
+int undo();
 
 #endif

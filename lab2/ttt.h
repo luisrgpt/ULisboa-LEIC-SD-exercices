@@ -34,6 +34,9 @@ extern  int * play_1_svc(play_args *, struct svc_req *);
 #define CHECKWINNER 3
 extern  int * checkwinner_1(void *, CLIENT *);
 extern  int * checkwinner_1_svc(void *, struct svc_req *);
+#define UNDO 10
+extern  int * undo_1(void *, CLIENT *);
+extern  int * undo_1_svc(void *, struct svc_req *);
 extern int ttt_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
@@ -46,6 +49,9 @@ extern  int * play_1_svc();
 #define CHECKWINNER 3
 extern  int * checkwinner_1();
 extern  int * checkwinner_1_svc();
+#define UNDO 10
+extern  int * undo_1();
+extern  int * undo_1_svc();
 extern int ttt_1_freeresult ();
 #endif /* K&R C */
 
