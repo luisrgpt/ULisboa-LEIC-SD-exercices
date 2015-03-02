@@ -27,3 +27,9 @@ git fetch
 git rebase
 
 (e verificar as colisões manualmente)
+
+# Atenção !!!
+
+Não fazer "git pull", que pode eliminar as alterações que foram efectuadas no repositório local.
+
+Não fazer "git fork", para simplificar a sincronização e leitura dos repositórios.
