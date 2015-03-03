@@ -8,6 +8,15 @@ import pt.ist.fenixframework.ValueTypeSerializer;
 @SuppressWarnings("all")
 public abstract class DomainFenixFrameworkRoot_Base extends pt.ist.fenixframework.backend.jvstmojb.pstm.OneBoxDomainObject {
     // Static Slots
+    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainMetaClass> role$$domainMetaClass = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainMetaClass>() {
+        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.ist.fenixframework.DomainMetaClass> getSet(pt.ist.fenixframework.DomainFenixFrameworkRoot o1) {
+            return ((DomainFenixFrameworkRoot_Base)o1).get$rl$domainMetaClass();
+        }
+        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> getInverseRole() {
+            return pt.ist.fenixframework.DomainMetaClass.role$$domainFenixFrameworkRoot;
+        }
+        
+    };
     public final static pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainRoot> role$$domainRoot = new pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainRoot>() {
         @Override
         public pt.ist.fenixframework.DomainRoot getValue(pt.ist.fenixframework.DomainFenixFrameworkRoot o1) {
@@ -22,24 +31,15 @@ public abstract class DomainFenixFrameworkRoot_Base extends pt.ist.fenixframewor
         }
         
     };
-    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainMetaClass> role$$domainMetaClass = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainMetaClass>() {
-        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.ist.fenixframework.DomainMetaClass> getSet(pt.ist.fenixframework.DomainFenixFrameworkRoot o1) {
-            return ((DomainFenixFrameworkRoot_Base)o1).get$rl$domainMetaClass();
-        }
-        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> getInverseRole() {
-            return pt.ist.fenixframework.DomainMetaClass.role$$domainFenixFrameworkRoot;
-        }
-        
-    };
-    
-    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainRoot,pt.ist.fenixframework.DomainFenixFrameworkRoot> getRelationDomainRootDomainFenixFrameworkRoot() {
-        return pt.ist.fenixframework.DomainRoot.getRelationDomainRootDomainFenixFrameworkRoot();
-    }
     
     public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> getRelationDomainFenixFrameworkRootDomainMetaClasses() {
         return pt.ist.fenixframework.DomainMetaClass.getRelationDomainFenixFrameworkRootDomainMetaClasses();
     }
     private static pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.DomainMetaClass> keyFunction$$domainMetaClass = new pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.DomainMetaClass>() { public Comparable<?> getKey(pt.ist.fenixframework.DomainMetaClass value) { return value.getOid(); } public boolean allowMultipleKeys() {return false; }};
+    
+    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainRoot,pt.ist.fenixframework.DomainFenixFrameworkRoot> getRelationDomainRootDomainFenixFrameworkRoot() {
+        return pt.ist.fenixframework.DomainRoot.getRelationDomainRootDomainFenixFrameworkRoot();
+    }
     
     // Slots
     
@@ -70,19 +70,6 @@ public abstract class DomainFenixFrameworkRoot_Base extends pt.ist.fenixframewor
     
     // Role Methods
     
-    public pt.ist.fenixframework.DomainRoot getDomainRoot() {
-        return ((DO_State)this.get$obj$state(false)).domainRoot;
-    }
-    
-    public void setDomainRoot(pt.ist.fenixframework.DomainRoot domainRoot) {
-        getRelationDomainRootDomainFenixFrameworkRoot().add(domainRoot, (pt.ist.fenixframework.DomainFenixFrameworkRoot)this);
-    }
-    
-    private java.lang.Long get$oidDomainRoot() {
-        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).domainRoot;
-        return (value == null) ? null : value.getOid();
-    }
-    
     public void addDomainMetaClass(pt.ist.fenixframework.DomainMetaClass domainMetaClass) {
         getRelationDomainFenixFrameworkRootDomainMetaClasses().add(domainMetaClass, (pt.ist.fenixframework.DomainFenixFrameworkRoot)this);
     }
@@ -109,11 +96,24 @@ public abstract class DomainFenixFrameworkRoot_Base extends pt.ist.fenixframewor
         return getDomainMetaClassSet().size();
     }
     
+    public pt.ist.fenixframework.DomainRoot getDomainRoot() {
+        return ((DO_State)this.get$obj$state(false)).domainRoot;
+    }
+    
+    public void setDomainRoot(pt.ist.fenixframework.DomainRoot domainRoot) {
+        getRelationDomainRootDomainFenixFrameworkRoot().add(domainRoot, (pt.ist.fenixframework.DomainFenixFrameworkRoot)this);
+    }
+    
+    private java.lang.Long get$oidDomainRoot() {
+        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).domainRoot;
+        return (value == null) ? null : value.getOid();
+    }
+    
     
     protected void checkDisconnected() {
         DO_State castedState = (DO_State)this.get$obj$state(false);
-        if (castedState.domainRoot != null) handleAttemptToDeleteConnectedObject("DomainRoot");
         if (get$rl$domainMetaClass().size() > 0) handleAttemptToDeleteConnectedObject("DomainMetaClass");
+        if (castedState.domainRoot != null) handleAttemptToDeleteConnectedObject("DomainRoot");
         
     }
     

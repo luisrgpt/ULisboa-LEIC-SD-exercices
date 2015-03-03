@@ -8,17 +8,12 @@ import pt.ist.fenixframework.ValueTypeSerializer;
 @SuppressWarnings("all")
 public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend.jvstmojb.pstm.OneBoxDomainObject {
     // Static Slots
-    public final static pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> role$$existingDomainMetaObjects = new pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree>() {
-        @Override
-        public pt.ist.fenixframework.adt.bplustree.DomainBPlusTree getValue(pt.ist.fenixframework.DomainMetaClass o1) {
-            return ((DomainMetaClass_Base.DO_State)o1.get$obj$state(false)).existingDomainMetaObjects;
+    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> role$$declaredConsistencyPredicate = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate>() {
+        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> getSet(pt.ist.fenixframework.DomainMetaClass o1) {
+            return ((DomainMetaClass_Base)o1).get$rl$declaredConsistencyPredicate();
         }
-        @Override
-        public void setValue(pt.ist.fenixframework.DomainMetaClass o1, pt.ist.fenixframework.adt.bplustree.DomainBPlusTree o2) {
-            ((DomainMetaClass_Base.DO_State)o1.get$obj$state(true)).existingDomainMetaObjects = o2;
-        }
-        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.adt.bplustree.DomainBPlusTree,pt.ist.fenixframework.DomainMetaClass> getInverseRole() {
-            return new pt.ist.fenixframework.dml.runtime.RoleEmpty<pt.ist.fenixframework.adt.bplustree.DomainBPlusTree,pt.ist.fenixframework.DomainMetaClass>(this);
+        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate,pt.ist.fenixframework.DomainMetaClass> getInverseRole() {
+            return pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate.role$$domainMetaClass;
         }
         
     };
@@ -33,15 +28,6 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
         }
         public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.DomainFenixFrameworkRoot,pt.ist.fenixframework.DomainMetaClass> getInverseRole() {
             return pt.ist.fenixframework.DomainFenixFrameworkRoot.role$$domainMetaClass;
-        }
-        
-    };
-    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> role$$declaredConsistencyPredicate = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate>() {
-        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> getSet(pt.ist.fenixframework.DomainMetaClass o1) {
-            return ((DomainMetaClass_Base)o1).get$rl$declaredConsistencyPredicate();
-        }
-        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate,pt.ist.fenixframework.DomainMetaClass> getInverseRole() {
-            return pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate.role$$domainMetaClass;
         }
         
     };
@@ -68,28 +54,20 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
         }
         
     };
-    
-    private final static class DomainMetaClassExistingDomainMetaObjects {
-        private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree>(role$$existingDomainMetaObjects, "DomainMetaClassExistingDomainMetaObjects");
-    }
-    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> getRelationDomainMetaClassExistingDomainMetaObjects() {
-        return DomainMetaClassExistingDomainMetaObjects.relation;
-    }
-    
-    static {
-        DomainMetaClassExistingDomainMetaObjects.relation.setRelationName("pt.ist.fenixframework.DomainMetaClass.DomainMetaClassExistingDomainMetaObjects");
-    }
-    
-    private final static class DomainFenixFrameworkRootDomainMetaClasses {
-        private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot>(role$$domainFenixFrameworkRoot, "DomainFenixFrameworkRootDomainMetaClasses");
-    }
-    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> getRelationDomainFenixFrameworkRootDomainMetaClasses() {
-        return DomainFenixFrameworkRootDomainMetaClasses.relation;
-    }
-    
-    static {
-        DomainFenixFrameworkRootDomainMetaClasses.relation.setRelationName("pt.ist.fenixframework.DomainMetaClass.DomainFenixFrameworkRootDomainMetaClasses");
-    }
+    public final static pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> role$$existingDomainMetaObjects = new pt.ist.fenixframework.dml.runtime.RoleOne<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree>() {
+        @Override
+        public pt.ist.fenixframework.adt.bplustree.DomainBPlusTree getValue(pt.ist.fenixframework.DomainMetaClass o1) {
+            return ((DomainMetaClass_Base.DO_State)o1.get$obj$state(false)).existingDomainMetaObjects;
+        }
+        @Override
+        public void setValue(pt.ist.fenixframework.DomainMetaClass o1, pt.ist.fenixframework.adt.bplustree.DomainBPlusTree o2) {
+            ((DomainMetaClass_Base.DO_State)o1.get$obj$state(true)).existingDomainMetaObjects = o2;
+        }
+        public pt.ist.fenixframework.dml.runtime.Role<pt.ist.fenixframework.adt.bplustree.DomainBPlusTree,pt.ist.fenixframework.DomainMetaClass> getInverseRole() {
+            return new pt.ist.fenixframework.dml.runtime.RoleEmpty<pt.ist.fenixframework.adt.bplustree.DomainBPlusTree,pt.ist.fenixframework.DomainMetaClass>(this);
+        }
+        
+    };
     
     private final static class DomainMetaClassDeclaredConsistencyPredicates {
         private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate>(role$$declaredConsistencyPredicate, "DomainMetaClassDeclaredConsistencyPredicates");
@@ -103,6 +81,17 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
     }
     private static pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate> keyFunction$$declaredConsistencyPredicate = new pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate>() { public Comparable<?> getKey(pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate value) { return value.getOid(); } public boolean allowMultipleKeys() {return false; }};
     
+    private final static class DomainFenixFrameworkRootDomainMetaClasses {
+        private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot>(role$$domainFenixFrameworkRoot, "DomainFenixFrameworkRootDomainMetaClasses");
+    }
+    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainFenixFrameworkRoot> getRelationDomainFenixFrameworkRootDomainMetaClasses() {
+        return DomainFenixFrameworkRootDomainMetaClasses.relation;
+    }
+    
+    static {
+        DomainFenixFrameworkRootDomainMetaClasses.relation.setRelationName("pt.ist.fenixframework.DomainMetaClass.DomainFenixFrameworkRootDomainMetaClasses");
+    }
+    
     
     private final static class DomainMetaSuperclassDomainMetaSubclasses {
         private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainMetaClass> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.DomainMetaClass>(role$$domainMetaSubclass, "DomainMetaSuperclassDomainMetaSubclasses");
@@ -115,6 +104,17 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
         DomainMetaSuperclassDomainMetaSubclasses.relation.setRelationName("pt.ist.fenixframework.DomainMetaClass.DomainMetaSuperclassDomainMetaSubclasses");
     }
     private static pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.DomainMetaClass> keyFunction$$domainMetaSubclass = new pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.ist.fenixframework.DomainMetaClass>() { public Comparable<?> getKey(pt.ist.fenixframework.DomainMetaClass value) { return value.getOid(); } public boolean allowMultipleKeys() {return false; }};
+    
+    private final static class DomainMetaClassExistingDomainMetaObjects {
+        private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree>(role$$existingDomainMetaObjects, "DomainMetaClassExistingDomainMetaObjects");
+    }
+    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.ist.fenixframework.DomainMetaClass,pt.ist.fenixframework.adt.bplustree.DomainBPlusTree> getRelationDomainMetaClassExistingDomainMetaObjects() {
+        return DomainMetaClassExistingDomainMetaObjects.relation;
+    }
+    
+    static {
+        DomainMetaClassExistingDomainMetaObjects.relation.setRelationName("pt.ist.fenixframework.DomainMetaClass.DomainMetaClassExistingDomainMetaObjects");
+    }
     
     // Slots
     
@@ -183,32 +183,6 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
     
     // Role Methods
     
-    public pt.ist.fenixframework.adt.bplustree.DomainBPlusTree getExistingDomainMetaObjects() {
-        return ((DO_State)this.get$obj$state(false)).existingDomainMetaObjects;
-    }
-    
-    public void setExistingDomainMetaObjects(pt.ist.fenixframework.adt.bplustree.DomainBPlusTree existingDomainMetaObjects) {
-        getRelationDomainMetaClassExistingDomainMetaObjects().add((pt.ist.fenixframework.DomainMetaClass)this, existingDomainMetaObjects);
-    }
-    
-    private java.lang.Long get$oidExistingDomainMetaObjects() {
-        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).existingDomainMetaObjects;
-        return (value == null) ? null : value.getOid();
-    }
-    
-    public pt.ist.fenixframework.DomainFenixFrameworkRoot getDomainFenixFrameworkRoot() {
-        return ((DO_State)this.get$obj$state(false)).domainFenixFrameworkRoot;
-    }
-    
-    public void setDomainFenixFrameworkRoot(pt.ist.fenixframework.DomainFenixFrameworkRoot domainFenixFrameworkRoot) {
-        getRelationDomainFenixFrameworkRootDomainMetaClasses().add((pt.ist.fenixframework.DomainMetaClass)this, domainFenixFrameworkRoot);
-    }
-    
-    private java.lang.Long get$oidDomainFenixFrameworkRoot() {
-        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).domainFenixFrameworkRoot;
-        return (value == null) ? null : value.getOid();
-    }
-    
     public void addDeclaredConsistencyPredicate(pt.ist.fenixframework.consistencyPredicates.DomainConsistencyPredicate declaredConsistencyPredicate) {
         getRelationDomainMetaClassDeclaredConsistencyPredicates().add((pt.ist.fenixframework.DomainMetaClass)this, declaredConsistencyPredicate);
     }
@@ -233,6 +207,19 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
     @Deprecated
     public int getDeclaredConsistencyPredicateCount() {
         return getDeclaredConsistencyPredicateSet().size();
+    }
+    
+    public pt.ist.fenixframework.DomainFenixFrameworkRoot getDomainFenixFrameworkRoot() {
+        return ((DO_State)this.get$obj$state(false)).domainFenixFrameworkRoot;
+    }
+    
+    public void setDomainFenixFrameworkRoot(pt.ist.fenixframework.DomainFenixFrameworkRoot domainFenixFrameworkRoot) {
+        getRelationDomainFenixFrameworkRootDomainMetaClasses().add((pt.ist.fenixframework.DomainMetaClass)this, domainFenixFrameworkRoot);
+    }
+    
+    private java.lang.Long get$oidDomainFenixFrameworkRoot() {
+        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).domainFenixFrameworkRoot;
+        return (value == null) ? null : value.getOid();
     }
     
     public pt.ist.fenixframework.DomainMetaClass getDomainMetaSuperclass() {
@@ -274,14 +261,27 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
         return getDomainMetaSubclassSet().size();
     }
     
+    public pt.ist.fenixframework.adt.bplustree.DomainBPlusTree getExistingDomainMetaObjects() {
+        return ((DO_State)this.get$obj$state(false)).existingDomainMetaObjects;
+    }
+    
+    public void setExistingDomainMetaObjects(pt.ist.fenixframework.adt.bplustree.DomainBPlusTree existingDomainMetaObjects) {
+        getRelationDomainMetaClassExistingDomainMetaObjects().add((pt.ist.fenixframework.DomainMetaClass)this, existingDomainMetaObjects);
+    }
+    
+    private java.lang.Long get$oidExistingDomainMetaObjects() {
+        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).existingDomainMetaObjects;
+        return (value == null) ? null : value.getOid();
+    }
+    
     
     protected void checkDisconnected() {
         DO_State castedState = (DO_State)this.get$obj$state(false);
-        if (castedState.existingDomainMetaObjects != null) handleAttemptToDeleteConnectedObject("ExistingDomainMetaObjects");
-        if (castedState.domainFenixFrameworkRoot != null) handleAttemptToDeleteConnectedObject("DomainFenixFrameworkRoot");
         if (get$rl$declaredConsistencyPredicate().size() > 0) handleAttemptToDeleteConnectedObject("DeclaredConsistencyPredicate");
+        if (castedState.domainFenixFrameworkRoot != null) handleAttemptToDeleteConnectedObject("DomainFenixFrameworkRoot");
         if (castedState.domainMetaSuperclass != null) handleAttemptToDeleteConnectedObject("DomainMetaSuperclass");
         if (get$rl$domainMetaSubclass().size() > 0) handleAttemptToDeleteConnectedObject("DomainMetaSubclass");
+        if (castedState.existingDomainMetaObjects != null) handleAttemptToDeleteConnectedObject("ExistingDomainMetaObjects");
         
     }
     
@@ -289,9 +289,9 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
         DO_State castedState = (DO_State)state;
         set$domainClassName(pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readString(rs, "DOMAIN_CLASS_NAME"), state);
         set$initialized(pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readBoolean(rs, "INITIALIZED"), state);
-        castedState.existingDomainMetaObjects = pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readDomainObject(rs, "OID_EXISTING_DOMAIN_META_OBJECTS");
         castedState.domainFenixFrameworkRoot = pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readDomainObject(rs, "OID_DOMAIN_FENIX_FRAMEWORK_ROOT");
         castedState.domainMetaSuperclass = pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readDomainObject(rs, "OID_DOMAIN_META_SUPERCLASS");
+        castedState.existingDomainMetaObjects = pt.ist.fenixframework.backend.jvstmojb.repository.ResultSetReader.readDomainObject(rs, "OID_EXISTING_DOMAIN_META_OBJECTS");
     }
     protected pt.ist.fenixframework.dml.runtime.Relation get$$relationFor(String attrName) {
         if (attrName.equals("declaredConsistencyPredicate")) return getRelationDomainMetaClassDeclaredConsistencyPredicates();
@@ -312,17 +312,17 @@ public abstract class DomainMetaClass_Base extends pt.ist.fenixframework.backend
     protected static class DO_State extends pt.ist.fenixframework.backend.jvstmojb.pstm.OneBoxDomainObject.DO_State {
         private java.lang.String domainClassName;
         private java.lang.Boolean initialized;
-        private pt.ist.fenixframework.adt.bplustree.DomainBPlusTree existingDomainMetaObjects;
         private pt.ist.fenixframework.DomainFenixFrameworkRoot domainFenixFrameworkRoot;
         private pt.ist.fenixframework.DomainMetaClass domainMetaSuperclass;
+        private pt.ist.fenixframework.adt.bplustree.DomainBPlusTree existingDomainMetaObjects;
         protected void copyTo(pt.ist.fenixframework.backend.jvstmojb.pstm.OneBoxDomainObject.DO_State  newState) {
             super.copyTo(newState);
             DO_State newCasted = (DO_State)newState;
             newCasted.domainClassName = this.domainClassName;
             newCasted.initialized = this.initialized;
-            newCasted.existingDomainMetaObjects = this.existingDomainMetaObjects;
             newCasted.domainFenixFrameworkRoot = this.domainFenixFrameworkRoot;
             newCasted.domainMetaSuperclass = this.domainMetaSuperclass;
+            newCasted.existingDomainMetaObjects = this.existingDomainMetaObjects;
             
         }
         

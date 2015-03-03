@@ -25,6 +25,12 @@ public class SetupDomain {
 	Contact c = new Contact("IST", 214315112);
 	c.setPerson(person);
 
+	person = new Person("Teste");
+ 	pb.addPerson(person);
+	person.addContact(new Contact("LOL", 111));
+	c = new Contact("ESCSPUTL", 214315166);
+	c.setPerson(person);
+
 	try {
 	    c = new Contact("IST", 214315112);
 	    c.setPerson(person);

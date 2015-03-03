@@ -8,15 +8,6 @@ import pt.ist.fenixframework.ValueTypeSerializer;
 @SuppressWarnings("all")
 public abstract class Person_Base extends pt.ist.fenixframework.backend.jvstmojb.pstm.OneBoxDomainObject {
     // Static Slots
-    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact> role$$contact = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact>() {
-        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.tecnico.phonebook.domain.Contact> getSet(pt.tecnico.phonebook.domain.Person o1) {
-            return ((Person_Base)o1).get$rl$contact();
-        }
-        public pt.ist.fenixframework.dml.runtime.Role<pt.tecnico.phonebook.domain.Contact,pt.tecnico.phonebook.domain.Person> getInverseRole() {
-            return pt.tecnico.phonebook.domain.Contact.role$$person;
-        }
-        
-    };
     public final static pt.ist.fenixframework.dml.runtime.RoleOne<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.PhoneBook> role$$phoneBook = new pt.ist.fenixframework.dml.runtime.RoleOne<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.PhoneBook>() {
         @Override
         public pt.tecnico.phonebook.domain.PhoneBook getValue(pt.tecnico.phonebook.domain.Person o1) {
@@ -31,6 +22,19 @@ public abstract class Person_Base extends pt.ist.fenixframework.backend.jvstmojb
         }
         
     };
+    public final static pt.ist.fenixframework.dml.runtime.RoleMany<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact> role$$contact = new pt.ist.fenixframework.dml.runtime.RoleMany<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact>() {
+        public pt.ist.fenixframework.dml.runtime.RelationBaseSet<pt.tecnico.phonebook.domain.Contact> getSet(pt.tecnico.phonebook.domain.Person o1) {
+            return ((Person_Base)o1).get$rl$contact();
+        }
+        public pt.ist.fenixframework.dml.runtime.Role<pt.tecnico.phonebook.domain.Contact,pt.tecnico.phonebook.domain.Person> getInverseRole() {
+            return pt.tecnico.phonebook.domain.Contact.role$$person;
+        }
+        
+    };
+    
+    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.tecnico.phonebook.domain.PhoneBook,pt.tecnico.phonebook.domain.Person> getRelationPhoneBookContainsPersons() {
+        return pt.tecnico.phonebook.domain.PhoneBook.getRelationPhoneBookContainsPersons();
+    }
     
     private final static class PersonContainsContacts {
         private static final pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact> relation = new pt.ist.fenixframework.backend.jvstmojb.pstm.LoggingRelation<pt.tecnico.phonebook.domain.Person,pt.tecnico.phonebook.domain.Contact>(role$$contact, "PersonContainsContacts");
@@ -43,10 +47,6 @@ public abstract class Person_Base extends pt.ist.fenixframework.backend.jvstmojb
         PersonContainsContacts.relation.setRelationName("pt.tecnico.phonebook.domain.Person.PersonContainsContacts");
     }
     private static pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.tecnico.phonebook.domain.Contact> keyFunction$$contact = new pt.ist.fenixframework.dml.runtime.KeyFunction<Comparable<?>,pt.tecnico.phonebook.domain.Contact>() { public Comparable<?> getKey(pt.tecnico.phonebook.domain.Contact value) { return value.getOid(); } public boolean allowMultipleKeys() {return false; }};
-    
-    public static pt.ist.fenixframework.dml.runtime.DirectRelation<pt.tecnico.phonebook.domain.PhoneBook,pt.tecnico.phonebook.domain.Person> getRelationPhoneBookContainsPersons() {
-        return pt.tecnico.phonebook.domain.PhoneBook.getRelationPhoneBookContainsPersons();
-    }
     
     // Slots
     
@@ -94,6 +94,19 @@ public abstract class Person_Base extends pt.ist.fenixframework.backend.jvstmojb
     
     // Role Methods
     
+    public pt.tecnico.phonebook.domain.PhoneBook getPhoneBook() {
+        return ((DO_State)this.get$obj$state(false)).phoneBook;
+    }
+    
+    public void setPhoneBook(pt.tecnico.phonebook.domain.PhoneBook phoneBook) {
+        getRelationPhoneBookContainsPersons().add(phoneBook, (pt.tecnico.phonebook.domain.Person)this);
+    }
+    
+    private java.lang.Long get$oidPhoneBook() {
+        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).phoneBook;
+        return (value == null) ? null : value.getOid();
+    }
+    
     public void addContact(pt.tecnico.phonebook.domain.Contact contact) {
         getRelationPersonContainsContacts().add((pt.tecnico.phonebook.domain.Person)this, contact);
     }
@@ -120,24 +133,11 @@ public abstract class Person_Base extends pt.ist.fenixframework.backend.jvstmojb
         return getContactSet().size();
     }
     
-    public pt.tecnico.phonebook.domain.PhoneBook getPhoneBook() {
-        return ((DO_State)this.get$obj$state(false)).phoneBook;
-    }
-    
-    public void setPhoneBook(pt.tecnico.phonebook.domain.PhoneBook phoneBook) {
-        getRelationPhoneBookContainsPersons().add(phoneBook, (pt.tecnico.phonebook.domain.Person)this);
-    }
-    
-    private java.lang.Long get$oidPhoneBook() {
-        pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject value = (pt.ist.fenixframework.backend.jvstmojb.pstm.AbstractDomainObject) ((DO_State)this.get$obj$state(false)).phoneBook;
-        return (value == null) ? null : value.getOid();
-    }
-    
     
     protected void checkDisconnected() {
         DO_State castedState = (DO_State)this.get$obj$state(false);
-        if (get$rl$contact().size() > 0) handleAttemptToDeleteConnectedObject("Contact");
         if (castedState.phoneBook != null) handleAttemptToDeleteConnectedObject("PhoneBook");
+        if (get$rl$contact().size() > 0) handleAttemptToDeleteConnectedObject("Contact");
         
     }
     
