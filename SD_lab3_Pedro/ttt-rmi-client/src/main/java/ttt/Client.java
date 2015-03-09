@@ -40,7 +40,18 @@ public class Client {
 	    									+ "where you want to place your %c (or 0 to refresh the board): \n",
 	    									player, (player == 1) ? 'X' : 'O');
 	    					play = keyboardSc.nextInt();
-	    				} while (play > 9 || play < 0);
+	    					
+	    					
+	    					if(play== 10){
+		    					String s = "Last play done by the player " + player +" was "+ ttt.lastPlay();
+		    					System.out.println(s);
+		    					playAccepted=true;
+		    					continue;
+		    				}
+	    					
+	    				} while (play > 10 || play < 0);
+	    				
+	    				
 	    				
 	    				if (play != 0) {
 	    					playAccepted = ttt.play( --play / 3, play % 3, player);

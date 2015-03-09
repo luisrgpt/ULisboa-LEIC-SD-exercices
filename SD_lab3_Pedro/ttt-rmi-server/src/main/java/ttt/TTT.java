@@ -15,9 +15,12 @@ public class TTT extends UnicastRemoteObject implements TTTService {
 	int numPlays = 0;
 	int version = 0;;
 
+	char lastplay_Player0;
+	char lastplay_Player1;
 	
 	public TTT() throws RemoteException{}
 	
+	/*
 	public void restart(){
 				board[0][0]='1';
 				board[0][1]='2';
@@ -34,6 +37,13 @@ public class TTT extends UnicastRemoteObject implements TTTService {
 				nextPlayer=0;
 				numPlays=0;
 				version=0;
+	}*/
+	
+	public char lastPlay(){
+		if(nextPlayer == 1)
+			return lastplay_Player0;
+		else return lastplay_Player1;
+		
 	}
 	
     public String currentBoard() {
@@ -53,7 +63,9 @@ public class TTT extends UnicastRemoteObject implements TTTService {
     }
 
     public boolean play(int row, int column, int player) {
-		if (!(row >=0 && row <3 && column >= 0 && column < 3))
+		char play = '0';
+    	
+    	if (!(row >=0 && row <3 && column >= 0 && column < 3))
 			return false;
 		if (board[row][column] > '9')
 			return false;
@@ -64,6 +76,28 @@ public class TTT extends UnicastRemoteObject implements TTTService {
 			return false;
 
 		board[row][column] = (player == 1) ? 'X' : 'O';        /* Insert player symbol   */
+		
+		if(row==0){
+			if(column==0) play='1';
+			if(column==1) play='2';
+			if(column==2) play='3';
+			}
+		if(row==1){
+			if(column==0) play='4';
+			if(column==1) play='5';
+			if(column==2) play='6';
+			}
+		if(row==2){
+			if(column==0) play='7';
+			if(column==1) play='8';
+			if(column==2) play='9';
+			}
+		
+		if(nextPlayer==1)
+			lastplay_Player0=play;
+		else
+			lastplay_Player1=play;
+		
 		nextPlayer = (nextPlayer + 1) % 2;
 		numPlays ++;
 		return true;	
@@ -75,10 +109,10 @@ public class TTT extends UnicastRemoteObject implements TTTService {
     	  if((board[0][0] == board[1][1] && board[0][0] == board[2][2]) ||
     	     (board[0][2] == board[1][1] && board[0][2] == board[2][0])) {
     		  if (board[1][1]=='X'){
-    			  restart();
+    			//  restart();
     			  return 1;}
     		  else {
-    			  restart();
+    			  //restart();
     			  return 0;}
     	  }
     	  else
@@ -86,24 +120,24 @@ public class TTT extends UnicastRemoteObject implements TTTService {
     	    for(i = 0; i <= 2; i ++){
     	      if((board[i][0] == board[i][1] && board[i][0] == board[i][2])) {
     	    	  if (board[i][0]=='X'){
-    	    		  restart();
+    	    		//  restart();
     	    		  return 1;}
     	    	  else {
-    	    		  restart();
+    	    		  //restart();
     	    		  return 0;}
     	      }
 
     	     if ((board[0][i] == board[1][i] && board[0][i] == board[2][i])) {
     	    	 if (board[0][i]=='X'){ 
-    	    		 restart();
+    	    		 //restart();
     	    		 return 1;}
     	    	 else {
-    	    		 restart();
+    	    		 //restart();
     	    		 return 0;}
     	     }
     	    }
     	  	if (numPlays == 9){
-    	  		restart();
+    	  		//restart();
     	  		return 2; /* A draw! */}
     	  	else{
     	  		return -1; /* Game is not over yet */}
