@@ -49,7 +49,7 @@ public class Client {
 		    					continue;
 		    				}
 	    					
-	    				} while (play > 10 || play < 0);
+	    				} while (play > 9 || play < 0);
 	    				
 	    				
 	    				
