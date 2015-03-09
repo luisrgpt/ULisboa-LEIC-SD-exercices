@@ -10,6 +10,14 @@ Em caso de emergência, leiam as instruções.
 
 ```git clone https://github.com/lribeirogomes/sd```
 
+## Para copiar repositório remoto (eliminando repositório local):
+
+```git clean```
+
+```git reset```
+
+```git pull```
+
 ## Para meter as cenas no GitHub:
 
 ```git add``` (meter a localização ficheiros que mudaste)
