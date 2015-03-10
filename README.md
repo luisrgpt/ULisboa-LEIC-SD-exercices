@@ -12,32 +12,48 @@ Em caso de emergência, leiam as instruções.
 
 ## Para copiar repositório remoto (eliminando repositório local):
 
-```git clean```
+```git fetch --all```
 
-```git reset```
-
-```git pull```
+```git reset --hard origin/master```
 
 ## Para meter as cenas no GitHub:
 
-```git add``` (meter a localização ficheiros que mudaste)
+```git status``` , para verificar os ficheiros que foram alterados
+
+```git add``` (meter a localização dos ficheiros que mudaste)
+
+ou ```git remove``` (meter a localização ficheiros que eliminaste)
+
+```git status``` , para verificar se ainda há ficheiros por aderir/remover
 
 ```git commit -m``` "(mensagem do commit, que explica e justifica as alterações efectuadas)"
 
 ```git push```
 
-(se o git não deixar fazer "git pull", é porque há uma nova versão)
+## Se ```git push``` for aceite:
 
-## Para sincronizar repositórios:
+ - Mandar mensagem para o facebook
+
+## Se ```git push``` for rejeitado:
 
 ```git fetch```
 
 ```git rebase```
 
-(e verificar as colisões manualmente)
+## Se rebase detectar inconsistências:
+
+```git status``` , para verificar os ficheiros que estão em conflito
+
+ver ficheiro e corrigir inconsistências (entre as linhas <<<<<<< e >>>>>>>)
+
+```git add``` (meter a localização dos ficheiros que corrigiste)
+
+```git rebase --continue``` , para verificar se ainda existem inconsistências
+
+## Por fim, se ```git push``` for aceite:
+
+ - Mandar mensagem para o facebook
 
 # Atenção !!!
-
-Não fazer ```git pull```, que pode eliminar as alterações que foram efectuadas no repositório local.
 
 Não fazer ```git fork```, para simplificar a sincronização e leitura dos repositórios.
