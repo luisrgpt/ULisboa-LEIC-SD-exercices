@@ -35,7 +35,10 @@ public class Game {
         }
 
         System.out.println("Creating stub ...");
-        // ...
+        //Creates an instance of the class that handles the access to the remote services (JAX-WS)
+        service = new TTTImplService();
+        //Obtains the service interface with the remote methods defined (see TTT.java)
+        TTT port = service.getTTTImplPort();
 
         System.out.println("Setting endpoint address ...");
         BindingProvider bindingProvider = (BindingProvider) port;
@@ -48,7 +51,8 @@ public class Game {
         g.congratulate();
     }
 
-    private TTT ttt;
+    private static TTTImplService service;
+    private static TTT ttt;
     private Scanner keyboardSc;
     private int winner = 0;
     private int player = 1;

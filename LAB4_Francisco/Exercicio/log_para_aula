@@ -1,2 +1,26 @@
-ttt_server
-1 - A TTTMain deveria receber 3 argumentos que são especificados no pom.xml. Um deles é o ws.url que mostra onde no nosso servidor local está o serviço TTT. Por muito que mude a variável ws.url que é dada como argumento à main, ou mesmo que a elimine, ele continua a receber 'http://localhost:8080/.../endpoint'. Este url não está em lugar algum do pom.xml. Mesmo se o endereço for dado literalmente em vez de por variável não funciona.
+Quando for necessário adicionar funcionalidades:
+server-side:
+	-Criar método no TTTimpl.java
+	-Adicionar header ao TTT.java
+	-mvn clean package exec:java
+client-side:
+	-Inserir na execução da playGame() do Game.java
+	-mvn clean generate-sources
+	-Verificar se foram criados os ficheiros de WSDL do método (ex: lastPlay.java e lastPlayResponse.java)
+	-mvn compile
+	-mvn exec:java
+
+
+1-Estude o WSDL gerado. Consegue mapear o código Java para as definições WSDL e XSD?
+Verificar o WSDL (http://localhost:8080/ttt-ws/endpoint/?WSDL)
+
+2-Onde, no WSDL, é especificado o tipo de argumentos do Web Service?
+3-Compare o WSDL gerado com o ficheiro ttt.x do servidor SUN RPC do ttt.
+4-Que informação é comum a ambos os ficheiros?
+5-Que informação existe no WSDL mas não existe no .x?
+
+6-Identifique a função de cada ficheiro gerado no cliente (ignore os ficheiros ObjectFactory.java e package-info.java na sua resposta).
+Os ficheiros com o nome de cada método definem os argumentos recebidos por esse método remote, os ficheiros com o nome do método seguido de 'Response' definem o que é devolvido.
+
+7-Como pode modificar o endereço que o cliente utiliza para contactar o servidor?
+Através do endereço $ws.url definido no pom.xml do cliente.
