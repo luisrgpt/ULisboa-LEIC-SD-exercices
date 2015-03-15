@@ -87,9 +87,9 @@
     <mainclass>ttt.cli.Game</mainclass>
 
     <uddi.url>http://localhost:8081</uddi.url>
-    <ws.name>...</ws.name>
+    <ws.name>ttt</ws.name>
 
-    <ws.url>http://localhost:8080/.../endpoint</ws.url>
+    <ws.url>http://localhost:8080/ttt-ws/endpoint</ws.url>
     <wsdl.url>${ws.url}?WSDL</wsdl.url>
   </properties>
 

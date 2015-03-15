@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
 
   <name>${project.artifactId}</name>
-
+  
   <dependencies>
     <!-- JAXR (ConnectionFactory) -->
     <dependency>
@@ -87,8 +87,8 @@
     <mainclass>ttt.TTTMain</mainclass>
 
     <uddi.url>http://localhost:8081</uddi.url>
-    <ws.name>...</ws.name>
-    <ws.url>http://localhost:8080/.../endpoint</ws.url>
+    <ws.name>ttt</ws.name>
+    <ws.url>http://localhost:8080/ttt-ws/endpoint</ws.url>
   </properties>
 
   <build>
@@ -110,7 +110,8 @@
           <arguments>
             <argument>${uddi.url}</argument>
             <argument>${ws.name}</argument>
-            <argument>${ws.url}</argument>
+            <!--argument>${ws.url}</argument-->
+            <argument>http://localhost:8080/ttt-ws/endpoint</argument>
           </arguments>
         </configuration>
       </plugin>
