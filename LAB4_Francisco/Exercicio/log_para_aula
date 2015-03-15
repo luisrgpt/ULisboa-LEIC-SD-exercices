@@ -1,0 +1,2 @@
+ttt_server
+1 - A TTTMain deveria receber 3 argumentos que são especificados no pom.xml. Um deles é o ws.url que mostra onde no nosso servidor local está o serviço TTT. Por muito que mude a variável ws.url que é dada como argumento à main, ou mesmo que a elimine, ele continua a receber 'http://localhost:8080/.../endpoint'. Este url não está em lugar algum do pom.xml. Mesmo se o endereço for dado literalmente em vez de por variável não funciona.
