@@ -83,7 +83,10 @@ public class Game {
                 System.out.println(ttt.currentBoard());
                 play = readPlay();
                 if (play != 0) {
-                    playAccepted = ttt.play( --play / 3, play % 3, player);
+					if (play != 10)
+						playAccepted = ttt.play( --play / 3, play % 3, player);
+					else
+						playAccepted = ttt.playRandom(player);
                     if (!playAccepted)
                         System.out.println("Invalid play! Try again.");
                 } else {
